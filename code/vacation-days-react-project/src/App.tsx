@@ -1,9 +1,9 @@
-import { MainTitle } from "./components/main-title";
+import { OneAndOnly } from "./pages/one-and-only";
 
 function App() {
   return (
     <>
-      <MainTitle />
+      <OneAndOnly />
     </>
   );
 }
