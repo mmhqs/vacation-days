@@ -2,10 +2,15 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Esta linha garante que ele procure em todos os arquivos React na pasta 'src'
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#000000',
+        'secondary': '#4B5563',
+      },
+    },
   },
   plugins: [],
 }
