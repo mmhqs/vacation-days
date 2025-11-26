@@ -1,4 +1,3 @@
-import "./App.css";
 import { MainTitle } from "./components/main-title";
 
 function App() {
