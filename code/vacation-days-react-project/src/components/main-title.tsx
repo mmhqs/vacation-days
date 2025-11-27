@@ -1,10 +1,10 @@
 export const MainTitle = () => {
   return (
     <>
-      <h1 className="text-8xl font-bold text-primary w-6xl text-center">
+      <h1 className="text-6xl font-bold text-primary w-4xl text-center">
         Saiba o melhor período para suas férias
       </h1>
-      <h2 className="text-2xl text-secondary">
+      <h2 className="text-xl text-secondary">
         Descanse, trabalhador cansado, descanse.
       </h2>
     </>
