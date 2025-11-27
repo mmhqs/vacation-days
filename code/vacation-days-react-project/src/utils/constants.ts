@@ -1,4 +1,4 @@
-export const ESTADOS_BRASILEIROS = [
+export const BRAZILIAN_STATES = [
   "Acre",
   "Alagoas",
   "Amapá",

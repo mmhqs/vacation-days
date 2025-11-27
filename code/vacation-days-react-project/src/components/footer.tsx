@@ -1,3 +1,3 @@
 export const Footer = () => {
-    return <div>© 2024 Vacation Days Inc.</div>;
+    return <div className="border-t-2 py-6 px-50">© 2024 Vacation Days Inc.</div>;
 }
