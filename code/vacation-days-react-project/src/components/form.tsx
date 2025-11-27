@@ -1,7 +1,7 @@
 export const Form = () => { 
     return (
-        <div>
-            <p>Qual seu estado?</p>
+        <div className="bg-[##FFF4DA]">
+            <div>Qual seu estado?</div>
         </div>
     )
 }
