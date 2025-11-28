@@ -6,7 +6,7 @@ const HOLIDAYS_QUERY_KEY = ['holidays'];
 
 const fetchHolidays = async (year: string, state: string) => {
 /*   const response = await axios.get(`${API_URL}/${year}?token=23210|KmBAuGadKwys1tAG3cs8uiPTSHZdpfZH&state=${state}`); */
-  const response = await axios.get(`${BASE_URL}2026?token=23210|KmBAuGadKwys1tAG3cs8uiPTSHZdpfZH&state=${state}`);
+  const response = await axios.get(`${BASE_URL}${year}?token=23210|KmBAuGadKwys1tAG3cs8uiPTSHZdpfZH&state=${state}`);
   return response.data;
 };
 
