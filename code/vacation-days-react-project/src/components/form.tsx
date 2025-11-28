@@ -1,9 +1,4 @@
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import React from "react";
-import { BRAZILIAN_STATES } from "../utils/constants";
 // import { useGetHolidays } from "../hooks/useGetHolidays";
 import { organizeHolidays } from "../utils/utils";
 import { HolidayInfo } from "./holidays-info";
@@ -11,15 +6,23 @@ import { NiceButton } from "./nice-button";
 import { RAW_HOLIDAYS_MOCK } from "../utils/mocks";
 import { DaysSlider } from "./days-slider";
 import { ReloadButton } from "./reload-button";
+import { MonthSelect } from "./selects/month-select";
+import type { SelectChangeEvent } from "@mui/material/Select";
+import { StateSelect } from "./selects/state-select";
 
 export const Form = () => {
   const [state, setState] = React.useState("");
+  const [month, setMonth] = React.useState("");
   const [iKnowHowManyDays, setIKnowHowManyDays] = React.useState(false);
   const [iWannaSplitMyVacation, setIWannaSplitMyVacation] =
     React.useState(false);
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChangeState = (event: SelectChangeEvent) => {
     setState(event.target.value as string);
+  };
+
+  const handleChangeMonth = (event: SelectChangeEvent) => {
+    setMonth(event.target.value as string);
   };
 
   /* const { data: rawHolidays } = useGetHolidays("2026", state); */
@@ -36,16 +39,8 @@ export const Form = () => {
 
   return (
     <div className="bg-[#FFF4DA] border-3 border-r-12 border-b-12 rounded-xl p-4 w-300 h-100">
-      <FormControl fullWidth>
-        <InputLabel>Qual seu estado?</InputLabel>
-        <Select value={state} label="Age" onChange={handleChange}>
-          {BRAZILIAN_STATES.map((state) => (
-            <MenuItem key={state} value={state}>
-              {state}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <StateSelect state={state} handleChange={handleChangeState} />
+
       {state && (
         <>
           <HolidayInfo
@@ -69,6 +64,9 @@ export const Form = () => {
               <div>
                 <div>Hmmmm, entendi. Quantos dias então?</div>
                 <DaysSlider />
+
+                <div>Hmmmm, entendi. Qual mês de preferência?</div>
+                <MonthSelect month={month} handleChange={handleChangeMonth}/>
               </div>
             )}
             {iWannaSplitMyVacation && (
