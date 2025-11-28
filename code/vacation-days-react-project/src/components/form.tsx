@@ -65,7 +65,7 @@ export const Form = () => {
                 <div>Hmmmm, entendi. Quantos dias então?</div>
                 <DaysSlider />
 
-                <div>Hmmmm, entendi. Qual mês de preferência?</div>
+                <div>Qual mês de preferência?</div>
                 <MonthSelect month={month} handleChange={handleChangeMonth}/>
               </div>
             )}
