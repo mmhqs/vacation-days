@@ -15,6 +15,9 @@ Access the project [here](https://mmhqs.github.io/vacation-days/) 😎🌞
 ## Public APIs
 - [Invertexto](https://api.invertexto.com/)
 
+## Public images
+- [EmojiTerra](https://emojiterra.com/sun-with-face/)
+
 ## Deploy
 The command `npm run deploy` will automatically create a branch on Github to deploy.
 
