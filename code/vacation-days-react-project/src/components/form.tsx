@@ -38,9 +38,8 @@ export const Form = () => {
   }, [rawHolidays]);
 
   return (
-    <div className="bg-[#FFF4DA] border-3 border-r-12 border-b-12 rounded-xl p-4 w-300 h-100">
+    <>
       <StateSelect state={state} handleChange={handleChangeState} />
-
       {state && (
         <>
           <HolidayInfo
@@ -66,7 +65,7 @@ export const Form = () => {
                 <DaysSlider />
 
                 <div>Qual mês de preferência?</div>
-                <MonthSelect month={month} handleChange={handleChangeMonth}/>
+                <MonthSelect month={month} handleChange={handleChangeMonth} />
               </div>
             )}
             {iWannaSplitMyVacation && (
@@ -78,6 +77,6 @@ export const Form = () => {
       <div className="absolute bottom-4 right-4">
         <ReloadButton />
       </div>
-    </div>
+    </>
   );
 };
