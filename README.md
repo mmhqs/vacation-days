@@ -6,8 +6,17 @@ Access the project [here](https://mmhqs.github.io/vacation-days/) 😎🌞
 ## Technologies
 - React (Typescript)
 - Tailwind
-- Github Pages (`gh-pages` package)
-- MUI Material (`@mui/material`, `@emotion/react` and `@emotion/styled` packages)
+
+## Public packages
+- Github Pages (`gh-pages`)
+- MUI Material (`@mui/material`, `@emotion/react` and `@emotion/styled`)
+- MUI Material icons (`@mui/icons-material`)
+
+## Public APIs
+- [Invertexto](https://api.invertexto.com/)
 
 ## Deploy
 The command `npm run deploy` will automatically create a branch on Github to deploy.
+
+## Project limitations
+- This project is crap on mobile. Please use a web browser <3
