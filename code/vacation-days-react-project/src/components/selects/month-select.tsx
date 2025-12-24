@@ -15,8 +15,8 @@ export const MonthSelect = ({ month, handleChange }: MonthSelectProps) => {
       <InputLabel>Mês</InputLabel>
       <Select value={month} label="Age" onChange={handleChange}>
         {MONTHS.map((month) => (
-          <MenuItem key={month} value={month}>
-            {month}
+          <MenuItem key={month.name} value={month.value}>
+            {month.name}
           </MenuItem>
         ))}
       </Select>

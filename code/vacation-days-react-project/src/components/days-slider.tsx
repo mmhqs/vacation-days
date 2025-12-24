@@ -1,15 +1,16 @@
-import { useState } from 'react';
+type DaysSliderProps = {
+  days: number;
+  onChange: (days: number) => void;
+}
 
-export function DaysSlider() {
-  const [days, setDays] = useState(1);
-
+export const DaysSlider = ({ days, onChange }: DaysSliderProps) => {
   const min = 1;
   const max = 30;
   const percentage = ((days - min) / (max - min)) * 100;
   const backgroundSize = `${percentage}% 100%`;
 
   const handleChange = (event: any) => {
-    setDays(Number(event.target.value));
+    onChange(Number(event.target.value));
   };
 
   return (

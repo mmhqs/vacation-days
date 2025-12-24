@@ -4,25 +4,22 @@ import { organizeHolidays } from "../utils/utils";
 import { HolidayInfo } from "./holidays-info";
 import { NiceButton } from "./nice-button";
 import { RAW_HOLIDAYS_MOCK } from "../utils/mocks";
-import { DaysSlider } from "./days-slider";
 import { ReloadButton } from "./reload-button";
-import { MonthSelect } from "./selects/month-select";
 import type { SelectChangeEvent } from "@mui/material/Select";
 import { StateSelect } from "./selects/state-select";
+import { calculateBestVacationPeriodKnowingTheDays } from "../utils/vacation.utils";
+import { FixedDaysForm } from "./fixed-days-form";
 
 export const Form = () => {
   const [state, setState] = React.useState("");
-  const [month, setMonth] = React.useState("");
   const [iKnowHowManyDays, setIKnowHowManyDays] = React.useState(false);
   const [iWannaSplitMyVacation, setIWannaSplitMyVacation] =
     React.useState(false);
+  const [startDate, setStartDate] = React.useState<Date | null>(null);
+  const [endDate, setEndDate] = React.useState<Date | null>(null);
 
   const handleChangeState = (event: SelectChangeEvent) => {
     setState(event.target.value as string);
-  };
-
-  const handleChangeMonth = (event: SelectChangeEvent) => {
-    setMonth(event.target.value as string);
   };
 
   /* const { data: rawHolidays } = useGetHolidays("2026", state); */
@@ -36,6 +33,19 @@ export const Form = () => {
     }
     return { nationalHolidays: [], stateHolidays: [], mandatoryHolidays: [] };
   }, [rawHolidays]);
+
+  const calculateVacationDays = (days: number, month: number, year: number) => {
+    const result = calculateBestVacationPeriodKnowingTheDays(days, month, year);
+
+    if (result) {
+      const { startDay, endDay } = result;
+
+      setStartDate(new Date(year, month, startDay));
+      setEndDate(new Date(year, month, endDay));
+    } else {
+      console.error("Período de férias inválido para este mês.");
+    }
+  };
 
   return (
     <>
@@ -60,13 +70,13 @@ export const Form = () => {
               enabled={!iKnowHowManyDays && !iWannaSplitMyVacation}
             />
             {iKnowHowManyDays && (
-              <div>
-                <div>Hmmmm, entendi. Quantos dias então?</div>
-                <DaysSlider />
-
-                <div>Qual mês de preferência?</div>
-                <MonthSelect month={month} handleChange={handleChangeMonth} />
-              </div>
+              <FixedDaysForm
+                startDate={startDate}
+                endDate={endDate}
+                onCalculate={(days, month) =>
+                  calculateVacationDays(days, month, 2026)
+                }
+              />
             )}
             {iWannaSplitMyVacation && (
               <div>Hmmmm, entendi. Qual mês de preferência?</div>
