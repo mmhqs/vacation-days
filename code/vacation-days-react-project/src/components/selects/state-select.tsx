@@ -1,8 +1,5 @@
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import { BRAZILIAN_STATES } from "../../utils/constants";
+import { BeautifulSelectIMade } from "./beautiful-select-i-made";
 
 type StateSelectProps = {
   state: string;
@@ -11,15 +8,18 @@ type StateSelectProps = {
 
 export const StateSelect = ({ state, handleChange }: StateSelectProps) => {
   return (
-    <FormControl fullWidth>
-      <InputLabel>Qual seu estado?</InputLabel>
-      <Select value={state} label="Age" onChange={handleChange}>
-        {BRAZILIAN_STATES.map((state) => (
-          <MenuItem key={state} value={state}>
-            {state}
-          </MenuItem>
+    <div className="flex flex-col gap-2 w-full">
+      <label className="font-bold text-gray-900 ml-1">
+        Qual seu estado?
+      </label>
+
+      <BeautifulSelectIMade value={state} onChange={handleChange}>
+        {BRAZILIAN_STATES.map((stateName) => (
+          <option key={stateName} value={stateName}>
+            {stateName}
+          </option>
         ))}
-      </Select>
-    </FormControl>
+      </BeautifulSelectIMade>
+    </div>
   );
 };

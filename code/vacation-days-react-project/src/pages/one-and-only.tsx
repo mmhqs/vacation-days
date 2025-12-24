@@ -13,7 +13,7 @@ export const OneAndOnly = () => {
       <Header activeContent={activeContent} setActiveContent={setActiveContent}/>
       <div className="h-screen flex flex-col justify-center items-center gap-4">
         <MainTitle />
-        <div className="bg-[#FFF4DA] border-3 border-r-12 border-b-12 rounded-xl p-4 w-300 h-120">
+        <div className="bg-[#FFF4DA] border-3 border-r-12 border-b-12 rounded-xl p-4 w-300 h-120 overflow-auto">
           {activeContent === 'form' && <Form /> }
           {activeContent === 'law' && <LawContent /> }
         </div>

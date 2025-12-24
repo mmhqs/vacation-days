@@ -11,7 +11,7 @@ type FixedDaysFormProps = {
 
 export const FixedDaysForm = ({ onCalculate, startDate, endDate }: FixedDaysFormProps) => {
   const [localMonth, setLocalMonth] = React.useState("");
-  const [vacationDays, setVacationDays] = React.useState(1);
+  const [vacationDays, setVacationDays] = React.useState(5);
 
   return (
     <div className="flex flex-col gap-2">

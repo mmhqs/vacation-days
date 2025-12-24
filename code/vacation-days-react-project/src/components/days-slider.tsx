@@ -4,7 +4,7 @@ type DaysSliderProps = {
 }
 
 export const DaysSlider = ({ days, onChange }: DaysSliderProps) => {
-  const min = 1;
+  const min = 5;
   const max = 30;
   const percentage = ((days - min) / (max - min)) * 100;
   const backgroundSize = `${percentage}% 100%`;
@@ -15,7 +15,7 @@ export const DaysSlider = ({ days, onChange }: DaysSliderProps) => {
 
   return (
     <div>
-      <p><strong>{days}</strong> { days === 1 ? 'dia' : 'dias'}</p>
+      <p><strong>{days}</strong> { days === 5 ? 'dia' : 'dias'}</p>
       
       <input
         type="range"

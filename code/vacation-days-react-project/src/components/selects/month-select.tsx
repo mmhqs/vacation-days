@@ -1,8 +1,5 @@
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import { MONTHS } from "../../utils/constants";
+import { BeautifulSelectIMade } from "./beautiful-select-i-made";
 
 type MonthSelectProps = {
   month: string;
@@ -11,15 +8,12 @@ type MonthSelectProps = {
 
 export const MonthSelect = ({ month, handleChange }: MonthSelectProps) => {
   return (
-    <FormControl fullWidth>
-      <InputLabel>Mês</InputLabel>
-      <Select value={month} label="Age" onChange={handleChange}>
+      <BeautifulSelectIMade value={month} onChange={handleChange}>
         {MONTHS.map((month) => (
-          <MenuItem key={month.name} value={month.value}>
+          <option key={month.name} value={month.value}>
             {month.name}
-          </MenuItem>
+          </option>
         ))}
-      </Select>
-    </FormControl>
+      </BeautifulSelectIMade>
   );
 };
